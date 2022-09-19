@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import React from 'react'
 import styles from '../styles/Home.module.css'
-import * as S from './styles'
+// import * as S from './styles'
 
 const Home: NextPage = () => {
   return (
@@ -24,7 +24,7 @@ const Home: NextPage = () => {
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
 
-        <S.Button value={''}></S.Button>
+        {/* <S.Button value={''}></S.Button> */}
         <p className={styles.description}>
           Get started by editing{' '}
           <code className={styles.code}>pages/index.tsx</code>

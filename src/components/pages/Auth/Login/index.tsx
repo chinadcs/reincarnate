@@ -1,6 +1,6 @@
 import { Navbar } from "@/components/structures/Navbar";
 
-const Dashboard = () => {
+const Login = () => {
   return (
     <>
       <Navbar />
@@ -8,4 +8,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard;
+export default Login;
