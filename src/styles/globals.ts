@@ -6,7 +6,7 @@ export default createGlobalStyle`
     padding: 0;
     outline: 0;
     box-sizing: border-box;
-    font-family: 'Roboto';
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
   body {
     -webkit-font-smoothing: antialiased !important;
