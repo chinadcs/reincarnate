@@ -4,10 +4,6 @@ import {
 } from 'formik';
 import { Button } from '@/components/shared/Button';
 
-interface MyFormValues {
-  firstName: string;
-}
-
 const Register = () => {
   return (
     <>

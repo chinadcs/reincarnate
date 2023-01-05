@@ -22,7 +22,7 @@ export const Navbar = () => {
         <S.LoginWrapper>
 
           <Link href='/auth/login'>
-            <Button variant="secondary" title="SignIn" fontWeight={800} fontColor={'black'} fontSize={'medium'}></Button>
+            <Button variant="secondary" title="SignIn" fontWeight={800} fontColor={'black'} fontSize={'medium'} />
           </Link>
           <Link href='/auth/register'>
             <Button variant="primary" title="SignUp" fontWeight={800} fontColor={'white'} fontSize={'medium'}></Button>

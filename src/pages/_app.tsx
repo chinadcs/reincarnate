@@ -1,6 +1,7 @@
 import type { AppProps } from 'next/app'
-import GlobalStyle from '@/styles/globals'
+import { SessionProvider } from "next-auth/react"
 import React from 'react'
+import GlobalStyle from '@/styles/globals'
 import { Providers } from '@/providers/index'
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -9,7 +10,9 @@ function MyApp({ Component, pageProps }: AppProps) {
 
       <GlobalStyle />
       <Providers>
-        <Component {...pageProps} />
+        <SessionProvider session={pageProps.session}>
+          <Component {...pageProps} />
+        </SessionProvider>
       </Providers>
     </>
 

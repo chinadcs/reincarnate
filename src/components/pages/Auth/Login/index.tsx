@@ -1,14 +1,25 @@
 import * as S from './styles'
 import {
-  Formik,
+  Formik, FormikProps,
 } from 'formik';
 import { Button } from '@/components/shared/Button';
-
-interface MyFormValues {
-  firstName: string;
-}
+import { useContext, useRef } from 'react';
+import { LoginUser } from './types';
+import { AuthContext } from '@/services/providers/auth';
 
 const Login = () => {
+  const formRef = useRef<FormikProps<LoginUser>>(null);
+  const { authUser } = useContext(AuthContext)
+  const handleSubmit = async ({ email, password }: LoginUser) => {
+
+    const payload = {
+      email: email,
+      password: password,
+    }
+
+    await authUser(payload);
+  }
+
   return (
     <>
       <S.Wrapper>
@@ -16,23 +27,19 @@ const Login = () => {
           <S.FormContent>
 
             <Formik
+              innerRef={formRef}
               initialValues={{ email: '', password: '' }}
-              onSubmit={(values, { setSubmitting }) => {
-                setTimeout(() => {
-                  alert(JSON.stringify(values, null, 2));
-                  setSubmitting(false);
-                }, 400);
-              }}
+              onSubmit={handleSubmit}
             >
-              {({ isSubmitting }) => (
-                <S.Login>
+              {({ handleSubmit, setFieldTouched, handleChange }) => (
+                <S.Login onSubmit={handleSubmit}>
                   <S.LoginField>
-                    <S.Input type="email" name="email" placeholder="E-mail" />
+                    <S.Input type="text" name="email" placeholder="E-mail" onChange={e => [setFieldTouched('email'), handleChange(e)]} />
                   </S.LoginField>
                   <S.LoginField>
-                    <S.Input type="password" name="password" placeholder="Password" />
+                    <S.Input type="password" name="password" placeholder="Password" onChange={e => [setFieldTouched('password'), handleChange(e)]} />
                   </S.LoginField>
-                  <Button variant="secondary" title="Login" fontWeight={800} fontColor={'black'} fontSize={'medium'} disabled={isSubmitting} />
+                  <Button type='submit' variant="secondary" title="Login" fontWeight={800} fontColor={'black'} fontSize={'medium'} />
                 </S.Login>
               )}
             </Formik>

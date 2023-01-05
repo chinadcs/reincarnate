@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import { Form, Field } from 'formik';
 
+// TODO: Refactor this to reuse the code.
+
 export const Wrapper = styled.div`
   display: flex;
   align-items: center;
@@ -31,6 +33,7 @@ export const FormBackground = styled.div`
   z-index: 0;
   -webkit-clip-path: inset(0 0 0 0);
   clip-path: inset(0 0 0 0);
+  overflow: hidden;
 `;
 export const FormBackgroundShape_1 = styled.div`
   transform: rotate(45deg);
@@ -84,7 +87,7 @@ export const LoginField = styled.div`
   position: relative;
 `;
 
-export const Input = styled(Field)`
+export const Input = styled.input`
   border: none;
   border-bottom: 2px solid #d1d1d4;
   background: none;
